@@ -8,10 +8,10 @@ import (
 	"path"
 
 	"github.com/codegangsta/cli"
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/vaporyco/go-vapory/accounts"
+	"github.com/vaporyco/go-vapory/cmd/utils"
+	"github.com/vaporyco/go-vapory/common"
+	"github.com/vaporyco/go-vapory/crypto"
 	"github.com/peterh/liner"
 )
 
@@ -21,24 +21,24 @@ const (
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "gethkey"
-	app.Action = gethkey
+	app.Name = "gvapkey"
+	app.Action = gvapkey
 	app.HideVersion = true // we have a command to print the version
 	app.Usage = `
 
-    gethkey [-p <passwordfile>|-d <keydir>] <address> <keyfile>
+    gvapkey [-p <passwordfile>|-d <keydir>] <address> <keyfile>
 
 Exports the given account's private key into <keyfile> using the hex encoding canonical EC
 format.
 The user is prompted for a passphrase to unlock it.
 For non-interactive use, the passphrase can be specified with the --password|-p flag:
 
-    gethkey --password <passwordfile>  <address> <keyfile>
+    gvapkey --password <passwordfile>  <address> <keyfile>
 
-You can set an alternative key directory to use to find your ethereum encrypted keyfile.
+You can set an alternative key directory to use to find your vapory encrypted keyfile.
 
 Note:
-As you can directly copy your encrypted accounts to another ethereum instance,
+As you can directly copy your encrypted accounts to another vapory instance,
 this import/export mechanism is not needed when you transfer an account between
 nodes.
           `
@@ -113,7 +113,7 @@ func readPassword(prompt string, warnTerm bool) (string, error) {
 	return input, err
 }
 
-func gethkey(ctx *cli.Context) {
+func gvapkey(ctx *cli.Context) {
 	account := ctx.Args().First()
 	if len(account) == 0 {
 		utils.Fatalf("account address must be given as first argument")

@@ -1,11 +1,11 @@
 # !/bin/bash
 # bash intelligence <destination_app_json_path> <number_of_clusters> <name_prefix> <ws_server> <ws_secret>
 
-# sets up a eth-net-intelligence app.json for a local ethereum network cluster of nodes
+# sets up a vap-net-intelligence app.json for a local vapory network cluster of nodes
 # - <number_of_clusters> is the number of clusters
 # - <name_prefix> is a prefix for the node names as will appear in the listing
-# - <ws_server> is the eth-netstats server
-# - <ws_secret> is the eth-netstats secret
+# - <ws_server> is the vap-netstats server
+# - <ws_secret> is the vap-netstats secret
 #
 
 # open http://localhost:3301
